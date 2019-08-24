@@ -22,11 +22,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let urlString = "http://dotinstall.com"
-        guard let url = URL(string: urlString) else {
-            return
+        loadUrl(urlString: urlString)
+    }
+    
+    func getValidatedUrl(urlString: String) -> URL? {
+        if URL(string: urlString) == nil {
+            print("Invalid URL")
+            return nil
         }
-        let request = URLRequest(url: url)
-        browserWebView.load(request)
+        return URL(string: urlString)
+    }
+    
+    func loadUrl(urlString: String) {
+        if let url = getValidatedUrl(urlString: urlString) {
+            let request = URLRequest(url: url)
+            browserWebView.load(request)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -35,10 +35,22 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNd-Vc-mTa">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="←" id="U7m-oF-RVL"/>
-                                    <barButtonItem title="→" id="dPd-7C-h9l"/>
+                                    <barButtonItem title="←" id="U7m-oF-RVL">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="KJP-2R-u7w"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="→" id="dPd-7C-h9l">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="gKc-dr-hPG"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="feW-eK-kkH"/>
-                                    <barButtonItem systemItem="refresh" id="Sh5-ia-Lxv"/>
+                                    <barButtonItem systemItem="refresh" id="Sh5-ia-Lxv">
+                                        <connections>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="veJ-qJ-QCl"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -57,6 +69,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="U7m-oF-RVL" id="n0l-wx-Scp"/>
+                        <outlet property="browserWebView" destination="Yes-ai-PKt" id="pM6-Vn-6Ne"/>
+                        <outlet property="forwardButton" destination="dPd-7C-h9l" id="umN-NK-rJP"/>
+                        <outlet property="reloadButton" destination="Sh5-ia-Lxv" id="PhS-Ev-Lxz"/>
+                        <outlet property="urlTextField" destination="UPn-tt-eXF" id="7nq-Qn-IQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,14 +20,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let urlString = "http://dotinstall.com"
         loadUrl(urlString: urlString)
     }
     
+    func showAlert(_ message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func getValidatedUrl(urlString: String) -> URL? {
         if URL(string: urlString) == nil {
-            print("Invalid URL")
+            showAlert("Invalid URL")
             return nil
         }
         return URL(string: urlString)

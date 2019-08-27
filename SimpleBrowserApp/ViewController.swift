@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var browserWebView: WKWebView!
@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        browserWebView.navigationDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,6 +29,12 @@ class ViewController: UIViewController {
         let urlString = "http://dotinstall.com"
         loadUrl(urlString: urlString)
         addBorder()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if let urlString = self.browserWebView.url?.absoluteString {
+            urlTextField.text = urlString
+        }
     }
     
     func addBorder() {

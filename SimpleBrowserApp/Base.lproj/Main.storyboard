@@ -53,9 +53,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="arZ-yK-3Xb">
+                                <rect key="frame" x="340" y="35" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="arZ-yK-3Xb" firstAttribute="centerY" secondItem="UPn-tt-eXF" secondAttribute="centerY" id="9cH-od-q2f"/>
                             <constraint firstItem="XNd-Vc-mTa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CeA-eo-SEq"/>
                             <constraint firstItem="UPn-tt-eXF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="R77-D4-a0O"/>
                             <constraint firstItem="Yes-ai-PKt" firstAttribute="top" secondItem="UPn-tt-eXF" secondAttribute="bottom" constant="10" id="ROF-3k-htG"/>
@@ -64,6 +68,7 @@
                             <constraint firstItem="XNd-Vc-mTa" firstAttribute="top" secondItem="Yes-ai-PKt" secondAttribute="bottom" id="Tuj-XJ-6TN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yes-ai-PKt" secondAttribute="trailing" id="WD9-Ww-Vkg"/>
                             <constraint firstItem="UPn-tt-eXF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="ZJw-Kf-bRW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="arZ-yK-3Xb" secondAttribute="trailing" constant="15" id="h2J-JL-pg5"/>
                             <constraint firstItem="Yes-ai-PKt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mVx-i6-pEJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UPn-tt-eXF" secondAttribute="trailing" constant="10" id="pbC-wX-Zon"/>
                         </constraints>
@@ -71,6 +76,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="U7m-oF-RVL" id="n0l-wx-Scp"/>
+                        <outlet property="browserActivityIndicatorView" destination="arZ-yK-3Xb" id="wwg-tM-aYh"/>
                         <outlet property="browserWebView" destination="Yes-ai-PKt" id="pM6-Vn-6Ne"/>
                         <outlet property="forwardButton" destination="dPd-7C-h9l" id="umN-NK-rJP"/>
                         <outlet property="reloadButton" destination="Sh5-ia-Lxv" id="PhS-Ev-Lxz"/>

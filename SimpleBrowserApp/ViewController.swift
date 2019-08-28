@@ -18,10 +18,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     
+    @IBOutlet weak var browserActivityIndicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         browserWebView.navigationDelegate = self
+        browserActivityIndicatorView.hidesWhenStopped = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,10 +34,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
         addBorder()
     }
     
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        browserActivityIndicatorView.startAnimating()
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let urlString = self.browserWebView.url?.absoluteString {
             urlTextField.text = urlString
         }
+        browserActivityIndicatorView.stopAnimating()
     }
     
     func addBorder() {

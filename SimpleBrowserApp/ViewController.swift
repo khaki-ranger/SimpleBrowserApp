@@ -43,6 +43,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
             urlTextField.text = urlString
         }
         browserActivityIndicatorView.stopAnimating()
+        backButton.isEnabled = browserWebView.canGoBack
+        forwardButton.isEnabled = browserWebView.canGoForward
     }
     
     func addBorder() {
@@ -80,12 +82,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
 
     @IBAction func goBack(_ sender: Any) {
+        browserWebView.goBack()
     }
     
     @IBAction func goForward(_ sender: Any) {
+        browserWebView.goForward()
     }
     
     @IBAction func reload(_ sender: Any) {
+        browserWebView.reload()
     }
+    
 }
 

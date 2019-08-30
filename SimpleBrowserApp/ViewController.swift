@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate {
+class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var browserWebView: WKWebView!
@@ -24,7 +24,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         browserWebView.navigationDelegate = self
+        urlTextField.delegate = self
         browserActivityIndicatorView.hidesWhenStopped = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField != urlTextField {
+            return true
+        }
+        if let urlString = textField.text {
+            loadUrl(urlString: urlString)
+        }
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {

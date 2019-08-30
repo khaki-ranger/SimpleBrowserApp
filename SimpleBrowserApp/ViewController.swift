@@ -38,6 +38,13 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField != urlTextField {
+            return
+        }
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let urlString = "http://dotinstall.com"

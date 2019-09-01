@@ -84,7 +84,14 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
             showAlert("Invalid URL")
             return nil
         }
-        return URL(string: urlString)
+        return URL(string: appendScheme(urlString))
+    }
+    
+    func appendScheme(_ urlString: String) -> String {
+        if URL(string: urlString)?.scheme == nil {
+            return "http://" + urlString
+        }
+        return urlString
     }
     
     func loadUrl(urlString: String) {

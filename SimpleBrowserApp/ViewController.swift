@@ -79,6 +79,12 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        showAlert("Network Error")
+        browserWebView.stopLoading()
+        browserActivityIndicatorView.stopAnimating()
+    }
+    
     func getValidatedUrl(urlString: String) -> URL? {
         let trimed = urlString.trimmingCharacters(in: NSCharacterSet.whitespaces)
         if URL(string: trimed) == nil {
